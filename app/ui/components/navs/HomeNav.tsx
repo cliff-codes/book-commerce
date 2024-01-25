@@ -45,9 +45,17 @@ const HomeNav = () => {
           <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label> 
           <div className="menu p-4 w-80 min-h-full bg-base-200 gap-5">
             {/* Navbar menu content here */}
-            <Link href={'/'}>Home</Link>
-            <Link href={'/shop'}>Shop</Link>
-            <Link href={'/about'}>About</Link>
+            <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
+              <NavLink route={'/'} routeName='Home'/>
+            </div>
+
+            <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
+              <NavLink route={'/Shop'} routeName='Shop'/>
+            </div>
+
+            <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
+              <NavLink route={'/About'} routeName='About'/>
+            </div>
           </div>
         </div>
       </div>

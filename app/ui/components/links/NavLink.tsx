@@ -27,5 +27,4 @@ const NavLink = ({route, routeName}:LinkProps) => {
     </Link>
   )
 }
-
 export default NavLink
