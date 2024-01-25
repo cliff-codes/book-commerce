@@ -3,7 +3,7 @@ import { RiShoppingCartLine } from "react-icons/ri"
 
 const CartInfoBtn = () => {
   return (
-    <button className='btn  flex'>
+    <button className='btn btn-sm sm:btn-md  flex'>
         <RiShoppingCartLine size={24}/>
         <div>$0.00</div>
     </button>

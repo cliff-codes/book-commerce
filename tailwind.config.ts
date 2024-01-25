@@ -13,6 +13,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      screens: {
+        'custom-sm': '620px',
+        'custom-xs': '480px',
+        'custom-xxs': '360px',
+      }
     },
   },
   plugins: [require("daisyui")],
