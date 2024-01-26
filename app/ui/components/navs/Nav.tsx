@@ -8,7 +8,9 @@ const Nav = () => {
 
   return (
     <div className='w-full flex justify-center'>
-      {pathname.includes("store") ? <StoreNav/> : <HomeNav/>}
+      { pathname.includes('login') ? null :
+          pathname.includes("store") ? <StoreNav/> : 
+            <HomeNav/>}
     </div>
   )
 }

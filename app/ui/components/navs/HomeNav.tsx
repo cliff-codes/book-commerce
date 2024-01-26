@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
 import SellerBtn from '../buttons/SellerBtn'
 import LoginBtn from '../buttons/LoginBtn'
 import CartInfoBtn from '../buttons/CartInfoBtn'
-import { LuMenu } from "react-icons/lu"
 import Logo from '../logos/Logo'
 import NavLink from '../links/NavLink'
 
@@ -56,6 +54,8 @@ const HomeNav = () => {
             <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
               <NavLink route={'/About'} routeName='About'/>
             </div>
+
+            <SellerBtn/>
           </div>
         </div>
       </div>
