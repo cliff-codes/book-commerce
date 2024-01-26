@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const StoreLoginPage = () => {
@@ -23,6 +24,11 @@ const StoreLoginPage = () => {
             <button className='btn w-full mt-6 bg-orange-500 text-slate-50 hover:bg-orange-600'>
                 login
             </button>
+            
+            <div className='text-center text-sm py-1'>Don't have an account?</div>
+            <Link href={'/Store/register'}>
+                <button className='btn w-full'>register</button>
+            </Link>
         </form>
     </div>
   )
