@@ -5,10 +5,9 @@ import Footer from '../components/sections/Footer'
 
 const HomePage = () => {
   return (
-    <div className='w-full flex flex-col '>
+    <div className='w-full flex-1 '>
         <Showcase/>
         <TopSellingSection/>
-        <Footer/>
     </div>
   )
 }

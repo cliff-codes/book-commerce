@@ -2,15 +2,16 @@ import React from 'react'
 
 interface BookData {
   title: string,
-  price: number
+  price: number,
+  coverImg: string
 }
 
-const BookCard = ({title, price} : BookData) => {
+const BookCard = ({title, price, coverImg} : BookData) => {
   return (
     <div>
-      <div className="card w-72 h-auto bg-base-100 shadow-xl ">
+      <div className="card w-72 h-auto bg-base-100 shadow-xl hover:shadow-2xl transition-all .1 ease-linear">
         <figure className="px-10 pt-10 box-border">
-          <img  width={100} src="https://m.media-amazon.com/images/I/71TRUbzcvaL._AC_UF1000,1000_QL80_.jpg" alt="Book" className="rounded-xl object-contain" />
+          <img  width={100} src={coverImg} />
         </figure>
         <div className="card-body pl-10">
           <h2 className="text-lg">{title}</h2>
