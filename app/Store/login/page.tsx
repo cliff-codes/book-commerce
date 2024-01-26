@@ -1,4 +1,5 @@
-import StoreLoginPage from '@/app/ui/pages/StoreLoginPage'
+
+import StoreLoginPage from '@/app/ui/pages/forms/StoreLoginPage'
 import React from 'react'
 
 const Login = () => {
