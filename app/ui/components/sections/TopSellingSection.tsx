@@ -12,10 +12,12 @@ const TopSellingSection = () => {
 
 
             {/* fetch books data from the database to populate this section */}
-            <div className='w-full grid grid-cols-1 custom-xs:grid-cols-2 lg:grid-cols-3 gap-2 place-items-center'>
+            <div className='w-full grid grid-cols-1 custom-xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 place-items-center'>
               <BookCard title='Soul' price={123.42} coverImg='https://marketplace.canva.com/EAFaQMYuZbo/1/0/1003w/canva-brown-rusty-mystery-novel-book-cover-hG1QhA7BiBU.jpg'/>
 
               <BookCard title='Alone' price={123.42} coverImg='https://marketplace.canva.com/EAFPHUaBrFc/1/0/1003w/canva-black-and-white-modern-alone-story-book-cover-QHBKwQnsgzs.jpg'/>
+              <BookCard title='A million to one' price={123.42} coverImg='https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg'/>
+
               <BookCard title='A million to one' price={123.42} coverImg='https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg'/>
             </div>
         </div>

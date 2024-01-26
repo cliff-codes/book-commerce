@@ -8,12 +8,12 @@ interface BookData {
 
 const BookCard = ({title, price, coverImg} : BookData) => {
   return (
-    <div>
-      <div className="card w-72 h-auto bg-base-100 shadow-xl hover:shadow-2xl transition-all .1 ease-linear">
-        <figure className="px-10 pt-10 box-border">
-          <img  width={100} src={coverImg} />
+    <div className='w-full'>
+      <div className="card w-full min-w-60  h-auto bg-base-100 shadow-xl hover:shadow-2xl transition-all .1 ease-linear">
+        <figure className="px-3 pt-5 box-border ">
+          <img  width={100} src={coverImg} className='w-32' />
         </figure>
-        <div className="card-body pl-10">
+        <div className="card-body pl-5">
           <h2 className="text-lg">{title}</h2>
           
           {/* card price and action button to buy */}
