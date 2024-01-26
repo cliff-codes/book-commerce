@@ -3,7 +3,7 @@ import React from 'react'
 
 const SellerBtn = () => {
   return (
-        <Link href={'/store/login'}>
+        <Link href={'/Store/login'}>
             <button className='btn btn-outline'>Become a seller</button>
         </Link>
   )
