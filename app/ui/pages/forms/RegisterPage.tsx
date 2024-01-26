@@ -34,7 +34,7 @@ const RegisterPage = () => {
             </button>
             
             <div className='text-center text-sm py-1'>Already have an account?</div>
-            <Link href={'/Store/login'}>
+            <Link href={'/login'}>
                 <button className='btn w-full'>login</button>
             </Link>
         </form>

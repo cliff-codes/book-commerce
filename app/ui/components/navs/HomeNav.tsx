@@ -29,7 +29,6 @@ const HomeNav = () => {
                 <NavLink route={'/'} routeName={'Home'}/>
                 <NavLink route={'/Shop'} routeName={'Shop'}/>
                 <NavLink route={'/About'} routeName={'About'}/>
-                <SellerBtn/>
               </div>
             </div>
             <div className='flex gap-3'>
@@ -54,8 +53,6 @@ const HomeNav = () => {
             <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
               <NavLink route={'/About'} routeName='About'/>
             </div>
-
-            <SellerBtn/>
           </div>
         </div>
       </div>

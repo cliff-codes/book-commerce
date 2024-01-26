@@ -26,7 +26,7 @@ const StoreLoginPage = () => {
             </button>
             
             <div className='text-center text-sm py-1'>Don't have an account?</div>
-            <Link href={'/Store/register'}>
+            <Link href={'/register'}>
                 <button className='btn w-full'>register</button>
             </Link>
         </form>
