@@ -10,7 +10,11 @@ const Showcase = () => {
             <div className='flex flex-col gap-5 custom-sm:place-items-start custom-sm:gap-7'>
                 <h1 className='text-xl text-center custom-sm:text-2xl'>Your Reading Adventure Starts Here</h1>
                 <h4 className='text-center text-sm custom-xs:text-base custom-sm:text-left max-w-screen-custom-sm'>Welcome to a haven for book enthusiasts. Your next reading adventure awaits – Let the journey begin</h4>
-                <SearchBox/>
+                
+                <div className='w-full flex justify-center custom-sm:justify-start'>
+                    <SearchBox/>
+                </div>
+
             </div>
 
             <div className=' hidden custom-sm:flex  '>
