@@ -1,5 +1,4 @@
 import React from 'react'
-import SellerBtn from '../buttons/SellerBtn'
 import LoginBtn from '../buttons/LoginBtn'
 import CartInfoBtn from '../buttons/CartInfoBtn'
 import Logo from '../logos/Logo'
