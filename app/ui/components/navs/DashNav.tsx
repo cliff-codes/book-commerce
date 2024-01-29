@@ -35,15 +35,15 @@ const DashNav = () => {
             <div className='hidden lg:flex lg:gap-5 font-semibold text-slate-800'>
                 <SideNavBtn Icon = {<MdDashboard size={28} className={clsx('text-slate-800', {
                     'text-orange-500' : currentRoute === 'dashboard'
-                })}/>} btnName='Dashboard' route='/' />
+                })}/>} btnName='Dashboard' route='/cms/dashboard' />
 
                 <SideNavBtn Icon = {<MdCloudUpload size={28} className={clsx('text-slate-800', {
                     'text-orange-500' : currentRoute === 'upload'
-                })}/>} btnName='Upload' route='/' />
+                })}/>} btnName='Upload' route='/cms/dashboard/upload' />
 
                 <SideNavBtn Icon = {<MdLibraryBooks size={28} className={clsx('text-slate-800', {
                     'text-orange-500' : currentRoute === 'manage'
-                })}/>} btnName='Manage' route='/' />
+                })}/>} btnName='Manage' route='/cms/dashboard/manage' />
             </div>
             
             <div className='cursor-pointer'>
@@ -61,15 +61,15 @@ const DashNav = () => {
           <div className="menu p-4 w-80 min-h-full gap-5 bg-slate-800 text-slate-50 font-medium text-lg">
             {/* Navbar menu content here */}
             <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
-              <SideNavBtn Icon = {<MdDashboard size={28} className='text-slate-50'/>} btnName='Dashboard' route='/' />
+              <SideNavBtn Icon = {<MdDashboard size={28} className='text-slate-50'/>} btnName='Dashboard' route='/cms/dashboard' />
             </div>
 
             <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
-                <SideNavBtn Icon = {<MdCloudUpload size={28} className='text-slate-50'/>} btnName='Upload' route='/' />
+                <SideNavBtn Icon = {<MdCloudUpload size={28} className='text-slate-50'/>} btnName='Upload' route='/cms/dashboard/upload' />
             </div>
 
             <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
-                <SideNavBtn Icon = {<MdLibraryBooks size={28} className='text-slate-50'/>} btnName='Manage' route='/' />
+                <SideNavBtn Icon = {<MdLibraryBooks size={28} className='text-slate-50'/>} btnName='Manage' route='/cms/dashboard/manage' />
             </div>
 
             <div className='w-full hover:bg-slate-600 py-3 pl-3 rounded-md hover:text-slate-50'>
