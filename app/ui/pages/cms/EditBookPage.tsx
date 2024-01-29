@@ -1,9 +1,9 @@
 import React from 'react'
 
-const UploadPage = () => {
+const EditBookPage = () => {
   return (
-    <div className='w-full h-full max-w-7xl flex flex-col place-items-center px-4 bg-gray-50 pt-4'>
-        <h1 className='font-medium text-xl'>Upload Book</h1>
+    <div>
+        <h1 className='font-semibold text-xl mt-4'>Edit Book</h1>
 
         <form className='mt-5 flex flex-col gap-4 justify-center w-96 mb-8'>
             <label className="form-control w-full max-w-lg">
@@ -26,6 +26,7 @@ const UploadPage = () => {
                 </div>
                 <input type="number" placeholder="Price" className="input input-bordered w-full max-w-lg focus:outline-orange-400 border-none" />
             </label>
+
 
             <label className="form-control w-full max-w-lg">
                 <div className="label">
@@ -63,4 +64,4 @@ const UploadPage = () => {
   )
 }
 
-export default UploadPage
+export default EditBookPage
