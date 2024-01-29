@@ -2,6 +2,7 @@
 import { usePathname } from 'next/navigation'
 import HomeNav from './HomeNav'
 import StoreNav from './StoreNav'
+import DashNav from './DashNav'
 
 const Nav = () => {
     const pathname = usePathname()
@@ -11,6 +12,7 @@ const Nav = () => {
       { pathname.includes('login') ? null :
           pathname.includes('register') ? null :
             pathname.includes("store") ? <StoreNav/> : 
+              pathname.includes("cms") ? <DashNav/> :
               <HomeNav/>}
     </div>
   )
