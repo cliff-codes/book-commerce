@@ -22,11 +22,11 @@ const ManagePage = () => {
                 </thead>
                 <tbody>
                 {/* row 1 */}
-                <ManageBookTableRow bookImgUrl={'/tailwind-css-component-profile-2@56w.png'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
+                <ManageBookTableRow bookImgUrl={'https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
 
-                <ManageBookTableRow bookImgUrl={'/tailwind-css-component-profile-2@56w.png'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
+                <ManageBookTableRow bookImgUrl={'https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
 
-                <ManageBookTableRow bookImgUrl={'/tailwind-css-component-profile-2@56w.png'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
+                <ManageBookTableRow bookImgUrl={'https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
                 
                 </tbody>    
             </table>

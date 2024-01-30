@@ -1,0 +1,29 @@
+import React from 'react'
+import Link from 'next/link'
+
+interface BookData {
+    coverImg: string,
+    title: string,
+    price: number
+}
+
+const CmsBookCard = ({coverImg, title, price}: BookData) => {
+  return (
+    <Link href={''}>
+        <div className='w-full'>
+        <div className="card w-full glass">
+        <figure><img src={coverImg} alt="car!"/></figure>
+      <div className="card-body">
+      <h2 className="card-title">{title}</h2>
+      <p>How to park your car at your garage?</p>
+          <div className="card-actions justify-end">
+            <button className="btn bg-orange-500 text-slate-50">view</button>+
+          </div>
+        </div>  
+      </div>
+      </div>
+    </Link>
+  )
+}
+
+export default CmsBookCard

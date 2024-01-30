@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { MdEdit } from 'react-icons/md'
 
@@ -33,9 +34,11 @@ const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price} : Boo
           </td>
           <td>{price}</td>
           <th>
-            <button className="btn btn-ghost btn-xs">
-                <MdEdit size={24} />
-            </button>
+            <Link href={'/cms/dashboard/manage/{bookId}'}>
+              <button className="btn btn-ghost btn-xs">
+                  <MdEdit size={24} />
+              </button>
+            </Link>
           </th>
         </tr>
   )
