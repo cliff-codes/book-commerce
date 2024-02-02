@@ -5,7 +5,7 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        min: 3
+        minlength: 3
     },
     price: {
         type: Number,
@@ -13,7 +13,19 @@ const bookSchema = new mongoose.Schema({
     },
     img: {
         type: String,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: String,
+        required: true,
+    },
+    category: {
+        type: String
     }
 }, {timestamps: true})
 
-export const Book = mongoose.models.Book || mongoose.model("Book", bookSchema)
+export const Book = mongoose.models.Book || mongoose.model("Book", bookSchema);
+

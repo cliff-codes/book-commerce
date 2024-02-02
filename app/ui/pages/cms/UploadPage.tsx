@@ -18,7 +18,7 @@ const UploadPage = () => {
                 <div className="label">
                     <span className="label-text font-medium">Author Name</span>
                 </div>
-                <input type="text" placeholder="author" className="input input-bordered w-full max-w-lg focus:outline-orange-400 border-none" />
+                <input name='author' type="text" placeholder="author" className="input input-bordered w-full max-w-lg focus:outline-orange-400 border-none" />
             </label>
 
             <label className="form-control w-full max-w-lg">
@@ -40,11 +40,11 @@ const UploadPage = () => {
                     <span className="label-text font-medium">Book Category</span>
                 </div>
 
-                <select name='category' className="select w-full max-w-lg focus:outline-orange-400 border-none">
-                    <option disabled selected>Book Category</option>
+                <select name='category' defaultValue={"N/A"} className="select w-full max-w-lg focus:outline-orange-400 border-none">
                     <option>Sci-Fi</option>
                     <option>Romance</option>
                     <option>History</option>
+                    <option>N/A</option>
                 </select>
             </div>
 

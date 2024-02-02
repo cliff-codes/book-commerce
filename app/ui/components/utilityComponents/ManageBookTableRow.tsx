@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import { CiMenuKebab } from 'react-icons/ci'
 import { MdDelete, MdEdit } from 'react-icons/md'
 
 interface BookData{

@@ -22,3 +22,30 @@ export const addBook = async(e:FormData) => {
     revalidatePath('/cms/dashboard/manage')
     redirect('/cms/dashboard/manage')
 }
+
+export const updateBook =async (e:FormData) => {
+    "use server"
+    const {id} = Object.fromEntries(e) 
+
+    const bookObj = Object.fromEntries(e)
+    try {
+        await connectToDB()
+        
+        
+        //delete all empty and undefined fields
+        for(const key of Object.keys(bookObj)){
+            if (bookObj[key] === "" || bookObj === null || bookObj === undefined){
+                delete bookObj[key]
+            }
+        }
+        
+        //update book
+        const res =  await Book.findByIdAndUpdate(id, bookObj)
+       
+    } catch (error) {
+        throw new Error("Error updating book")
+    }
+
+    revalidatePath('/cms/dashboard/manage')
+    redirect('/cms/dashboard/manage')
+}
