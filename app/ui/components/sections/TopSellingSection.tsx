@@ -1,8 +1,11 @@
 import React from 'react'
 import SectionTitle from '../textUi/SectionTitle'
 import BookCard from '../utilityComponents/BookCard'
+import { fetchBooks } from '@/app/lib/data'
 
 const TopSellingSection = () => {
+  const books = fetchBooks()
+  console.log(books)
   return (
     <div className='w-full flex justify-center bg-gray-200'>
         <div className='w-full max-w-7xl px-6 flex flex-col gap-2 justify-center mt-10 mb-10'>

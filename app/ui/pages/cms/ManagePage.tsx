@@ -1,7 +1,12 @@
 import React from 'react'
 import ManageBookTableRow from '../../components/utilityComponents/ManageBookTableRow'
+import { fetchBooks } from '@/app/lib/data'
 
-const ManagePage = () => {
+const ManagePage = async() => {
+    
+    const {books} = await fetchBooks()
+    console.log(books)
+
   return (
     <div className='w-full max-w-7xl mt-6'>
         <div className="overflow-x-auto">
@@ -16,18 +21,19 @@ const ManagePage = () => {
                     </th>
                     <th>Book</th>
                     <th>Description</th>
-                    <th>Price</th>
+                    <th>Price ($)</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                {/* row 1 */}
-                <ManageBookTableRow bookImgUrl={'https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
-
-                <ManageBookTableRow bookImgUrl={'https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
-
-                <ManageBookTableRow bookImgUrl={'https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'} bookDescription='Some description about the book in particular' bookName='One in a Million' price={12.30}/>
                 
+                {/* rows of books in catalog*/}
+                {
+                    books.map((book) => (
+                         <ManageBookTableRow bookDescription={book.description} bookImgUrl={book.img} bookName={book.title} price={book.price} bookId= {book._id} key={book._id}/>
+                    )) 
+                }
+
                 </tbody>    
             </table>
         </div>

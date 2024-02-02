@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import { MdEdit } from 'react-icons/md'
+import { CiMenuKebab } from 'react-icons/ci'
+import { MdDelete, MdEdit } from 'react-icons/md'
 
 interface BookData{
     bookImgUrl : string,
@@ -9,7 +10,7 @@ interface BookData{
     price: number,
 }
 
-const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price} : BookData) => {
+const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price,bookId} : BookData) => {
   return (      
         <tr>
           <th>
@@ -33,12 +34,16 @@ const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price} : Boo
             {bookDescription}
           </td>
           <td>{price}</td>
-          <th>
-            <Link href={'/cms/dashboard/manage/{bookId}'}>
-              <button className="btn btn-ghost btn-xs">
-                  <MdEdit size={24} />
+          <th className='flex place-items-center'>
+            <Link href={`/cms/dashboard/manage/${bookId}`}>
+              <button className="btn btn-ghost btn-xs custom-xs:btn-md">
+                  <MdEdit size={20}/>
               </button>
             </Link>
+
+            <button className='btn btn-ghost btn-xs custom-xs:btn-md'>
+              <MdDelete size={20}/>
+            </button>
           </th>
         </tr>
   )
