@@ -1,3 +1,4 @@
+"use server"
 import { revalidatePath } from "next/cache"
 import { Book } from "./models"
 import { connectToDB } from "./utils"
@@ -5,7 +6,7 @@ import { redirect } from "next/navigation"
 
 
 export const addBook = async(e:FormData) => {
-    "use server"
+    
 
     const {title, price, img, description, category, author} = Object.fromEntries(e)
 
@@ -24,7 +25,7 @@ export const addBook = async(e:FormData) => {
 }
 
 export const updateBook =async (e:FormData) => {
-    "use server"
+    
     const {id} = Object.fromEntries(e) 
 
     const bookObj = Object.fromEntries(e)
@@ -48,4 +49,18 @@ export const updateBook =async (e:FormData) => {
 
     revalidatePath('/cms/dashboard/manage')
     redirect('/cms/dashboard/manage')
+}
+
+export const deleteBook = async(e:FormData) => {
+    
+    const {id} = Object.fromEntries(e)
+
+    try {
+        await connectToDB()
+
+        await Book.findByIdAndDelete(id)
+    } catch (error) {
+        throw new Error("Failed to delete book!")
+    }
+    revalidatePath('/cms/dashboard/manage')
 }

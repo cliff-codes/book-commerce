@@ -1,6 +1,8 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
-import { MdDelete, MdEdit } from 'react-icons/md'
+import { MdEdit } from 'react-icons/md'
+import DeleteAlertPortal from './DeleteAlertPortal'
 
 interface BookData{
     bookImgUrl : string,
@@ -40,9 +42,8 @@ const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price,bookId
               </button>
             </Link>
 
-            <button className='btn btn-ghost btn-xs custom-xs:btn-md'>
-              <MdDelete size={20}/>
-            </button>
+
+            <DeleteAlertPortal id = {bookId}/>
           </th>
         </tr>
   )
