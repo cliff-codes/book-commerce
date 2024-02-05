@@ -9,9 +9,14 @@ interface BookData{
     bookName: string,
     bookDescription: string,
     price: number,
+    bookId: string
 }
 
 const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price,bookId} : BookData) => {
+
+  
+
+
   return (      
         <tr>
           <th>
@@ -32,7 +37,7 @@ const ManageBookTableRow = ({bookImgUrl, bookName, bookDescription, price,bookId
             </div>
           </td>
           <td>
-            {bookDescription}
+            {bookDescription.length <= 80 ? bookDescription : `${bookDescription.substring(0,80)}.....`}
           </td>
           <td>{price}</td>
           <th className='flex place-items-center'>

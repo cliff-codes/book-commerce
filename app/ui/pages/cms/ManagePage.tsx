@@ -1,14 +1,20 @@
 import React from 'react'
 import ManageBookTableRow from '../../components/utilityComponents/ManageBookTableRow'
 import { fetchBooks } from '@/app/lib/data'
+import AddBtn from '../../components/buttons/AddBtn'
 
 const ManagePage = async() => {
     
     const {books} = await fetchBooks()
-    console.log(books)
+
+    
 
   return (
     <div className='w-full max-w-7xl mt-6'>
+        {/* add button to add feature onto a book to the catalog */}
+        <div className='w-full flex justify-end pr-4'>
+            <AddBtn/>
+        </div>
         <div className="overflow-x-auto">
             <table className="table">
                 {/* head */}

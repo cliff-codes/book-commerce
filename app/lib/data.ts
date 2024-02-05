@@ -16,7 +16,6 @@ export const fetchBooks = async() => {
         return {books}
 
     } catch (error) {
-        console.log(error)
         throw new Error("Error fetching books")
     }
 }
@@ -29,12 +28,9 @@ export const getBook =async (id:string) => {
 
         const book = await Book.findById(id)
         const bookObject = book.toObject();
-        
-        console.log({...bookObject, _id: bookObject._id.toString()})
     
         return {...bookObject, _id: bookObject._id.toString()}
     } catch (error) {
-        console.log(error)
         throw new Error("Failed to fetch book")
     }
 }

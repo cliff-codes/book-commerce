@@ -17,7 +17,7 @@ const CmsBookCard = ({coverImg, title, price}: BookData) => {
       <h2 className="card-title">{title}</h2>
       <p>How to park your car at your garage?</p>
           <div className="card-actions justify-end">
-            <button className="btn bg-orange-500 text-slate-50">view</button>+
+            <h1>$20</h1>
           </div>
         </div>  
       </div>

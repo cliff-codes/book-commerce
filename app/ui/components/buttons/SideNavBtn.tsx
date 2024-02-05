@@ -12,9 +12,8 @@ interface BtnInfo {
 const SideNavBtn = ({btnName, Icon, route} : BtnInfo) => {
   
     const pathname = usePathname()
-    console.log(pathname)
     const currentRoute = pathname.split('/').pop()
-    console.log(currentRoute)
+    
 
 
     return (
