@@ -1,10 +1,15 @@
+'use client'
 import React from 'react'
 import LoginBtn from '../buttons/LoginBtn'
 import CartInfoBtn from '../buttons/CartInfoBtn'
 import Logo from '../logos/Logo'
 import NavLink from '../links/NavLink'
+import {useSession} from 'next-auth/react'
+
 
 const HomeNav = () => {
+  const {data:session} = useSession()
+  console.log(session)
   return (
    <nav className='w-full bg-base-300 flex justify-center'>
       <div className="drawer w-full max-w-7xl">

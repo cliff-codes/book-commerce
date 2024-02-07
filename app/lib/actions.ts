@@ -1,8 +1,10 @@
 "use server"
 import { revalidatePath } from "next/cache"
-import { Book } from "./models"
+import { Book, User } from "./models"
 import { connectToDB } from "./utils"
 import { redirect } from "next/navigation"
+import bcrypt from 'bcrypt';
+import { NextResponse } from "next/server"
 
 
 export const addBook = async(e:FormData) => {
@@ -16,7 +18,6 @@ export const addBook = async(e:FormData) => {
         const newBook = new Book({ title, price, img, description, category, author})
         await newBook.save()
     } catch (error) {
-        console.log(error)
         throw new Error("Failed to add book")
     }
 
@@ -63,4 +64,36 @@ export const deleteBook = async(e:FormData) => {
         throw new Error("Failed to delete book!")
     }
     revalidatePath('/cms/dashboard/manage')
+}
+
+export const addUser = async(e:FormData) => {
+    const {username, password, email} = Object.fromEntries(e)
+    
+    if(!username || !email || !password){
+        return NextResponse.json({error: "input data missing"}, {status: 500})
+    }
+
+    try {
+
+        //connect database
+        await connectToDB()
+        
+
+        //hash password
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword =  await bcrypt.hash(password as string,salt)
+
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword
+        })
+
+        await newUser.save()
+
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to create account")
+    }
+    redirect("/login")
 }

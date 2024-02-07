@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "./ui/components/navs/Nav";
 import Footer from "./ui/components/sections/Footer";
+import { AuthProvider } from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='h-screen flex flex-col '>
-        <Nav/>
-        <div className="flex-1">{children}</div>
+        <div className="flex-1">
+          <AuthProvider>
+            <Nav/>
+            {children}
+          </AuthProvider>
+        </div>
         <Footer/>
       </body>
     </html>
