@@ -5,13 +5,13 @@ import CartInfoBtn from '../buttons/CartInfoBtn'
 import Logo from '../logos/Logo'
 import NavLink from '../links/NavLink'
 import {useSession} from 'next-auth/react'
-import { MdAccountCircle } from 'react-icons/md'
 import UserProfileModal from '../modals/UserProfileModal'
 
 
 const HomeNav = () => {
   const {data:session} = useSession()
-  console.log(session?.user)
+ 
+  
   return (
    <nav className='w-full bg-base-300 flex justify-center'>
       <div className="drawer w-full max-w-7xl">
