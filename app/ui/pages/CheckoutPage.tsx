@@ -41,9 +41,9 @@ const CheckoutPage = () => {
             console.log(response);
             throw new Error('An error occurred while processing the payment');
           }
+
         } catch (error) {
-          
-          console.error('Payment error:', error.response ? error.response.data : error.message);
+          console.error('Payment error:', error ? error.response?.data : error?.message);
           // Handle errors (e.g., display an error message)
         }
       };

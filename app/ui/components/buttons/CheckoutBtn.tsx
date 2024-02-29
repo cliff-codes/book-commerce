@@ -2,7 +2,7 @@ import React from 'react'
 import { useSession } from 'next-auth/react'
 import { useCartStore } from '@/app/cartStore'
 import axios from 'axios'
-import { redirect, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 
 const CheckoutBtn = () => {
@@ -10,7 +10,6 @@ const CheckoutBtn = () => {
   const router = useRouter()
 
   const {data:session} = useSession()
-  console.log(session)
 
   const checkoutData = {
     email : session?.user?.email,
@@ -37,10 +36,10 @@ const CheckoutBtn = () => {
         }
       } catch (error) {
         console.log(error)
-        redirect('/')
+        router.push('/')
       }
     }else{
-      redirect('/login')
+      router.push('/login')
     }
   }
 
