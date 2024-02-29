@@ -11,12 +11,14 @@ export const addBook = async(e:FormData) => {
     
 
     const {title, price, img, description, category, author} = Object.fromEntries(e)
-
+    
     try {
         await connectToDB()
 
         const newBook = new Book({ title, price, img, description, category, author})
-        await newBook.save()
+       
+        const res = await newBook.save()
+     
     } catch (error) {
         throw new Error("Failed to add book")
     }
@@ -24,7 +26,7 @@ export const addBook = async(e:FormData) => {
     revalidatePath('/cms/dashboard/manage')
     redirect('/cms/dashboard/manage')
 }
-
+ 
 export const updateBook =async (e:FormData) => {
     
     const {id} = Object.fromEntries(e) 
@@ -52,10 +54,7 @@ export const updateBook =async (e:FormData) => {
     redirect('/cms/dashboard/manage')
 }
 
-export const deleteBook = async(e:FormData) => {
-    
-    const {id} = Object.fromEntries(e)
-
+export const deleteBook = async(id:string) => {
     try {
         await connectToDB()
 

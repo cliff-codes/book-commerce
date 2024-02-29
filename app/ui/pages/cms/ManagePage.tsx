@@ -3,10 +3,18 @@ import ManageBookTableRow from '../../components/utilityComponents/ManageBookTab
 import { fetchBooks } from '@/app/lib/data'
 import AddBtn from '../../components/buttons/AddBtn'
 
+interface Book {
+    description: string;
+    img: string;
+    title: string;
+    price: number; // Adjust this type based on how you represent prices
+  _id: string;
+}
+
 const ManagePage = async() => {
     
-    const {books} = await fetchBooks()
-
+    const {books} : any = await fetchBooks()
+    
     
 
   return (
@@ -35,11 +43,10 @@ const ManagePage = async() => {
                 
                 {/* rows of books in catalog*/}
                 {
-                    books.map((book) => (
-                         <ManageBookTableRow bookDescription={book.description} bookImgUrl={book.img} bookName={book.title} price={book.price} bookId= {book._id} key={book._id}/>
+                    books.map((book:Book) => (
+                         <ManageBookTableRow bookDescription={book.description} bookImgUrl={book.img} bookName={book.title.toString()} price={book.price} bookId= {book._id.toString()} key={book._id}/>
                     )) 
                 }
-
                 </tbody>    
             </table>
         </div>

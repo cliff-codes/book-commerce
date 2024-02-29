@@ -13,8 +13,6 @@ const SideNavBtn = ({btnName, Icon, route} : BtnInfo) => {
   
     const pathname = usePathname()
     const currentRoute = pathname.split('/').pop()
-    
-
 
     return (
    <Link href={route}>

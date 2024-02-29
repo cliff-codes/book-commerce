@@ -12,7 +12,7 @@ const UserProfileModal = () => {
         </div>
 
         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-52">
-            <li onClick={() => signOut()}> <a className='font-medium'>logout</a> </li>
+            <li onClick={() => signOut()} className='hover:bg-slate-600 hover:text-slate-50 text-center py-1 rounded-lg cursor-pointer font-medium'> logout </li>
         </ul>
     </div>
   )

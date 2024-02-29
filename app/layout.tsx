@@ -5,6 +5,7 @@ import Nav from "./ui/components/navs/Nav";
 import Footer from "./ui/components/sections/Footer";
 import { AuthProvider } from "./Providers";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,15 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className='h-screen flex flex-col '>
-        <div className="flex-1">
-          <AuthProvider>
-            <Nav/>
-            {children}
-          </AuthProvider>
-        </div>
-        <Footer/>
-      </body>
+        <body className='h-screen flex flex-col '>
+          <div className="flex-1">
+            <AuthProvider>
+              <Nav/>
+              {children}
+            </AuthProvider>
+          </div>
+          <Footer/>
+        </body>
     </html>
   );
 }

@@ -4,9 +4,9 @@ import BookCard from '../utilityComponents/BookCard'
 import { fetchBooks } from '@/app/lib/data'
 
 const TopSellingSection = async() => {
-  
-  const {books} = await fetchBooks()
 
+  const { books } = await fetchBooks();
+  
   return (
     <div className='w-full flex justify-center bg-gray-200'>
         <div className='w-full max-w-7xl px-6 flex flex-col gap-2 justify-center mt-10 mb-10'>
@@ -20,9 +20,9 @@ const TopSellingSection = async() => {
             lg:grid-cols-4  gap-5'>
 
               {
-                books.map((book : any) => (
+                books ? books.map((book : any) => (
                   <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id} />
-                ))
+                )): <h2>Loading ......</h2>
               }
 
             </div>

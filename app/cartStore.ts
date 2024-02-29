@@ -23,6 +23,16 @@ export const useCartStore = create(persist((set, get) => ({
         {books: []}
     )),
 
+    //get all persisted books
+    getPersistedBooks: () => {
+        return get().books
+    },
+
+    //get the number of total persisted books
+    getNumberOfPersistedBooks: () => {
+        return get().books.length
+    },
+
     // Method to calculate total cost of all books
     getTotalCost: () => {
         const books = get().books;
