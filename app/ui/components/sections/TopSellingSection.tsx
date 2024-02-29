@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import SectionTitle from '../textUi/SectionTitle'
 import BookCard from '../utilityComponents/BookCard'
 import { fetchBooks } from '@/app/lib/data'
+import ProductsLoaderSkeleton from '../Skeletons/ProductsLoaderSkeleton'
 
 const TopSellingSection = async() => {
 
@@ -20,9 +21,11 @@ const TopSellingSection = async() => {
             lg:grid-cols-4  gap-5'>
 
               {
-                books ? books.map((book : any) => (
-                  <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id} />
-                )): <h2>Loading ......</h2>
+                <Suspense fallback = {<ProductsLoaderSkeleton/>}>
+                  {books && books.map(book => (
+                    <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id} />
+                  ))}
+                </Suspense>
               }
 
             </div>
