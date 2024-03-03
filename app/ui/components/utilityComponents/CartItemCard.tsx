@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { MdDelete } from 'react-icons/md'
-import { useCounterStore } from '@/app/store'
 import { useCartStore } from '@/app/cartStore'
 
 interface book {
