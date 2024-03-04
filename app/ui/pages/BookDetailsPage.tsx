@@ -1,16 +1,26 @@
 'use client'
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useCounterStore } from '@/app/store'
 import {useCartStore} from '@/app/cartStore'
 
+
 const BookDetailsPage = ({book}: any) => {
     const {increase, counter, decrease, reset} = useCounterStore()
-    const {addToCart} = useCartStore()
+    const {addToCart, bookExist, decreaseQty, increaseQty, findBook } = useCartStore()
+
+    const [addedToCart, setAddedToCart] = useState(true)
+    const [state, setState] = useState(false)
+
+    const cartBook = addedToCart || state ? findBook(book._id) : null;
+    const qty = cartBook ? cartBook.qty : counter;
+
 
     useEffect(() => {
         reset()
+        const bool = bookExist(book._id)
+        setAddedToCart(bool)
     },[])
-
+   
 
   return (
     <div className='w-full max-w-7xl flex pt-8 flex-col place-items-center'>
@@ -27,16 +37,19 @@ const BookDetailsPage = ({book}: any) => {
                 <div className='flex  flex-col gap-2'>
                     <div className='w-full flex justify-center place-items-center'>
                         <button className='btn btn-sm custom-xs:btn-md'
-                            onClick={() => decrease(1)}
+                            onClick={() => addedToCart ? decreaseQty(book._id) : decrease(1)}
                         >-</button>
-                        <span className='px-5'>{counter}</span>
+                        <span className='px-5'>{qty}</span>
                         <button className='btn btn-sm custom-xs:btn-md'
-                            onClick={() => increase(1)}
+                            onClick={() => addedToCart ? increaseQty(book._id) : increase(1)}
                         >+</button>
                     </div>
 
-                    <button className='btn btn-sm text-sm custom-xs:btn-md custom-xs:text-base bg-orange-500 text-slate-50 hover:bg-orange-500 ' 
-                        onClick={() => addToCart({...book, qty: counter})}
+                    <button disabled = {addedToCart} className= "btn btn-sm text-sm custom-xs:btn-md custom-xs:text-base bg-orange-500 text-slate-50 hover:bg-orange-500"
+                        onClick={() => {addToCart({...book, qty: counter})
+                        setAddedToCart(true)
+                        setState(true)
+                    }}
                     >add to cart</button>
                 </div>
             </div>

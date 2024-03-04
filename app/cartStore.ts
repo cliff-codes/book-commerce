@@ -10,6 +10,10 @@ export const useCartStore = create(persist((set, get) => ({
         books: state.books.filter((b: any) => b._id !== bookId)
     })),
 
+    bookExist: (bookId: string) => get().books.some((book: any) => book._id === bookId),
+
+    findBook: (bookId: string) => get().books.find((book: any) => book._id === bookId),
+    
     increaseQty: (bookId: string) => set((state:any) => ({
         books: state.books.map((book:any) => book._id === bookId ? { ...book, qty: book.qty + 1 } : book)
     })),
