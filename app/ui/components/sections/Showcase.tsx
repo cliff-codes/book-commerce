@@ -1,7 +1,11 @@
+'use client'
 import React from 'react'
 import SearchBox from '../utilityComponents/SearchBox'
+import { useRouter } from 'next/navigation'
 
 const Showcase = () => {
+    const router  = useRouter()
+
   return (
     <div className='w-full  flex justify-center place-content-center bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 h-80 box-border border'>
 
@@ -11,7 +15,7 @@ const Showcase = () => {
                 <h1 className='text-xl text-center custom-sm:text-2xl'>Your Reading Adventure Starts Here</h1>
                 <h4 className='text-center text-sm custom-xs:text-base custom-sm:text-left max-w-screen-custom-sm'>Welcome to a haven for book enthusiasts. Your next reading adventure awaits – Let the journey begin</h4>
                 
-                <div className='w-full flex justify-center custom-sm:justify-start'>
+                <div className='w-full flex justify-center custom-sm:justify-start' onClick={() => router.push("/Shop")}>
                     <SearchBox/>
                 </div>
 
