@@ -42,7 +42,7 @@ const StoreLoginPage = () => {
                 <div className="label">
                     <span className="label-text font-medium">email</span>
                 </div>
-                <input type="email" placeholder="enter e-mail" className="input input-bordered w-full max-w-xs focus:outline-none" 
+                <input type={"email"} placeholder={"enter e-mail"} className="input input-bordered w-full max-w-xs focus:outline-none" 
                     onChange={(e) => setData({...data, email: e.target.value})}
                 />
             </label>
