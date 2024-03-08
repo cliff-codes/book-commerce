@@ -22,7 +22,7 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
             await getSearchedData(query)
         }
         getData()
-    },[query])
+    },[query, getSearchedData])
 
   return (
     <div className='w-full flex flex-col place-items-center bg-slate-100 h-full'>
