@@ -35,10 +35,10 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
 
             {/* display books after page is done loading */}
             {dataFetched && searchResults.length > 0 ? <div className='grid grid-cols-1 custom-xs:grid-cols-2 sm:grid-cols-3
-            lg:grid-cols-4  gap-5 mx-3 mb-2'>
+            lg:grid-cols-4  gap-5 mx-3 mb-2 justify-center place-content-center'>
                 {
                     searchResults.map((el: any) => (
-                        <BookCard coverImg={el.img} price={el.price} id={el.id} title={el.title}/>
+                        <BookCard key={el._id} coverImg={el.img} price={el.price} id={el._id} title={el.title}/>
                    ))
                 }
             </div> : null}
