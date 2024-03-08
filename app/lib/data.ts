@@ -4,18 +4,20 @@ import { connectToDB } from "./utils"
 
 
 export const fetchBooks = async() => {
+    console.log("Connecting to DB")
     try {
         await connectToDB()
 
-        const booksData = await Book.find({})
+        const res = await Book.find({})
        
-        const books = booksData.map(book => {
+        const books = res.map(book => {
             return book._doc
         })
 
         return {books}
 
     } catch (error) {
+        console.log(error)
         return error
     }
 }
@@ -39,7 +41,7 @@ export const searchedBooks = async(searchTerm: string) => {
         //combined results with the exact-matches at the top and the partial matches below.
         const combinedResults = [...exactMatches, ...partialMatches]
 
-        return combinedResults
+        return JSON.stringify(combinedResults)
     } catch (error) {
         throw new Error("Failed to search")
     }

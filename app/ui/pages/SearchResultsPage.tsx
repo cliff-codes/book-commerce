@@ -1,6 +1,8 @@
-import React from 'react'
+'use client'
+
 
 const SearchResultsPage = () => {
+
   return (
     <div>SearchResultsPage</div>
   )

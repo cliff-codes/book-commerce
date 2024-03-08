@@ -6,7 +6,7 @@ import ProductsLoaderSkeleton from '../Skeletons/ProductsLoaderSkeleton'
 
 const TopSellingSection = async() => {
 
-  const { books } = await fetchBooks();
+  const { books } : any  = await fetchBooks();
   
   return (
     <div className='w-full flex justify-center bg-gray-200'>
@@ -22,7 +22,7 @@ const TopSellingSection = async() => {
 
               {
                 <Suspense fallback = {<ProductsLoaderSkeleton/>}>
-                  {books && books.map(book => (
+                  {books && books.map((book: any) => (
                     <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id} />
                   ))}
                 </Suspense>

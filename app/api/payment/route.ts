@@ -22,10 +22,10 @@ export async function POST(req:any) {
       },
     });
  
-    return NextResponse.json(response.data);
+    return NextResponse.json(response.data)
     // return response.data
   } catch (error) {
-    console.error('Payment processing error:', error);
+    console.error('Payment processing error:', error)
     return error
   }
 }
