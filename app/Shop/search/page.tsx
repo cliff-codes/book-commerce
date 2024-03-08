@@ -15,7 +15,7 @@ interface SearchProps {
 const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
 
     const query = searchParams?.query || "";
-    const { searchResults, loading, error, getSearchedData, dataFetched} = useSearchStore()
+    const { searchResults, loading, error, getSearchedData, dataFetched} : any = useSearchStore()
 
     useEffect(() => {
         const getData = async() => {
@@ -30,17 +30,24 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
       <div className='mt-4'><SearchBox/></div>
     
         <div className='mt-4 w-full max-w-7xl flex'>
+            {/* when page is loading */}
             {loading && !dataFetched && <ProductsLoaderSkeleton/>}
 
-            {dataFetched && searchResults.length > 0 ? <div className='w-full grid-cols-1 custom-xs:grid-cols-2 sm:grid-cols-3'>
+            {/* display books after page is done loading */}
+            {dataFetched && searchResults.length > 0 ? <div className='grid grid-cols-1 custom-xs:grid-cols-2 sm:grid-cols-3
+            lg:grid-cols-4  gap-5 mx-3 mb-2'>
                 {
-                    searchResults.map(el => (
+                    searchResults.map((el: any) => (
                         <BookCard coverImg={el.img} price={el.price} id={el.id} title={el.title}/>
                    ))
                 }
             </div> : null}
 
+                {/* search results not found message */}
             {dataFetched && searchResults.length == 0 && <div className='font-bold text-[18px]'>"{query}" wasn't found in our books collection</div>}
+
+            {/* error when fetching the data */}
+            {error && <div>Search error, please reload :( </div>}
         </div>
     </div>
   );
