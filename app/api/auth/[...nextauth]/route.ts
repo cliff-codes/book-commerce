@@ -14,7 +14,7 @@ export const authOptions = {
             credentials: {},
 
             async authorize(credentials) {
-                const {email , password} = credentials
+                const {email , password} : any = credentials
                 
                 try {
                     await connectToDB()
