@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface BookData {
     coverImg: string,
@@ -12,7 +13,7 @@ const CmsBookCard = ({coverImg, title, price}: BookData) => {
     <Link href={''}>
         <div className='w-full'>
         <div className="card w-full glass">
-        <figure><img src={coverImg} alt="car!"/></figure>
+        <figure><Image width={100} height={100} src={coverImg} alt="car!"/></figure>
       <div className="card-body">
       <h2 className="card-title">{title}</h2>
       <p>How to park your car at your garage?</p>

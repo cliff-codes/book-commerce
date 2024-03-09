@@ -44,7 +44,7 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
             </div> : null}
 
                 {/* search results not found message */}
-            {dataFetched && searchResults.length == 0 && <div className='font-bold text-[18px]'>"{query}" wasn't found in our books collection</div>}
+            {dataFetched && searchResults.length == 0 && <div className='font-bold text-[18px]'>{ `"${query}" wasn't found in our books collection` }</div>}
 
             {/* error when fetching the data */}
             {error && <div>Search error, please reload :( </div>}

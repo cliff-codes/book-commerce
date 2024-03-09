@@ -66,7 +66,7 @@ const StoreLoginPage = () => {
                 login
             </button>
             
-            <div className='text-center text-sm py-1'>Don't have an account?</div>
+            <div className='text-center text-sm py-1'>{`Don't have an account?`}</div>
 
             <Link href={'/register'}>
                 <button className='btn w-full'>register</button>

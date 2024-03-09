@@ -13,7 +13,7 @@ const CartPage = () => {
   useEffect(() => {
     const books = getNumberOfPersistedBooks()
     setTotalBooks(books)
-  }, [])
+  }, [getNumberOfPersistedBooks])
   
 
 

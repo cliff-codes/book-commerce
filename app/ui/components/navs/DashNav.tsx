@@ -5,6 +5,7 @@ import SideNavBtn from '../buttons/SideNavBtn'
 import { MdCloudUpload, MdDashboard, MdLibraryBooks, MdLogout } from 'react-icons/md'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
+import Image from 'next/image'
 
 
 
@@ -49,7 +50,7 @@ const DashNav = () => {
             <div className='cursor-pointer'>
                 <div className="avatar">
                     <div className="w-10 rounded-full ring ring-[orange] ring-offset-base-100 ring-offset-2">
-                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
+                        <Image width={50} height={50} alt='avatar' src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
                     </div>
                 </div>
             </div>

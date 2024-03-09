@@ -15,7 +15,7 @@ const CartInfoBtn = () => {
     setNumPersistedBooks(numOfBooks)
     const cost = getTotalCost()
     setTotalCost(cost)
-  },[setNumPersistedBooks])
+  },[setNumPersistedBooks, getNumberOfPersistedBooks, getTotalCost])
 
 
   return (

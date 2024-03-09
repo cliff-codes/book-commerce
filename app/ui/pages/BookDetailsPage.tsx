@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import { useCounterStore } from '@/app/store'
 import {useCartStore} from '@/app/cartStore'
+import Image from 'next/image'
 
 
 const BookDetailsPage = ({book}: any) => {
@@ -19,14 +20,14 @@ const BookDetailsPage = ({book}: any) => {
         reset()
         const bool = bookExist(book._id)
         setAddedToCart(bool)
-    },[])
+    },[bookExist, book._id, reset])
    
 
   return (
     <div className='w-full max-w-7xl flex pt-8 flex-col place-items-center'>
         <div className='flex flex-col custom-xs:flex-row gap-4 custom-xs:gap-9'>
             <div className="card card-side bg-base-100 shadow-xl rounded-none max-h-80">
-                <figure className='border w-64 '><img src={book.img || null}  className='w-full object-contain p-8' alt="Book"/></figure>
+                <figure className='border w-64 '><Image width={100} height={100} src={book.img || null}  className='w-full object-contain p-8' alt="Book"/></figure>
             </div>
 
             <div className='flex flex-col justify-around '>
