@@ -7,7 +7,8 @@ interface ConnectionsStatus {
 let connection : ConnectionsStatus = {}
 const password = process.env.password
 
-export const connectToDB = async () => {
+
+export const connectToDB = async () => { 
     try {
         if(connection.isConnected) return;
 

@@ -7,9 +7,9 @@ import Image from 'next/image'
 
 const BookDetailsPage = ({book}: any) => {
     const {increase, counter, decrease, reset} = useCounterStore()
-    const {addToCart, bookExist, decreaseQty, increaseQty, findBook } = useCartStore()
+    const {addToCart, bookExist, decreaseQty, increaseQty, findBook , getNumberOfPersistedBooks} = useCartStore()
 
-    const [addedToCart, setAddedToCart] = useState(true)
+    const [addedToCart, setAddedToCart] = useState(false)
     const [state, setState] = useState(false)
 
     const cartBook = addedToCart || state ? findBook(book._id) : null;

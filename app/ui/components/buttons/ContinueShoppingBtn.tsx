@@ -5,7 +5,7 @@ const ContinueShoppingBtn = () => {
   return (
     <Link href={'/Shop'} className='w-full flex justify-center'>
         <div className='w-full max-w-sm'>
-            <button className='btn border border-orange-500 text-orange-500 w-full'>continue shopping</button>
+            <button className='btn border border-orange-500 text-orange-500 w-full border-none'>continue shopping</button>
         </div>
     </Link>
   )

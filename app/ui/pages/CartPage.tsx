@@ -14,6 +14,8 @@ const CartPage = () => {
     const books = getNumberOfPersistedBooks()
     setTotalBooks(books)
   }, [getNumberOfPersistedBooks])
+
+  console.log(totalBooks)
   
 
 

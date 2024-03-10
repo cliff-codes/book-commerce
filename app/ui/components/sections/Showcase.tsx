@@ -6,7 +6,7 @@ import SearchBox from '../utilityComponents/SearchBox'
 const Showcase = () => {
 
   return (
-    <div className='w-full  flex justify-center place-content-center bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 h-80 box-border border'>
+    <div className='w-full  flex justify-center place-content-center bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 h-80 box-border '>
 
         <div className='w-full max-w-7xl px-6 text-slate-50 flex justify-center flex-col place-items-center custom-sm:flex-row custom-sm:justify-around'>
 

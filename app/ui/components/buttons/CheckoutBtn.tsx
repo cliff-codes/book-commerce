@@ -45,7 +45,7 @@ const CheckoutBtn = () => {
 
   return (
     <div className='w-full max-w-sm'>
-        <button className='btn bg-orange-500 hover:bg-orange-600 w-full text-slate-50'
+        <button className='btn bg-orange-500 hover:bg-orange-600 w-full text-slate-50 border-none'
         onClick={handleClick}
         >Checkout</button>
     </div>
