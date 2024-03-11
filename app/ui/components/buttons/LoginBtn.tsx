@@ -7,7 +7,7 @@ const LoginBtn = () => {
     <Link href={'/login'}>
       <button className='btn btn-sm sm:btn-md flex '>
         <LuUser size={24}/>
-        <div>login</div>
+        <div className='hidden custom-xs:flex'>login</div>
       </button>
     </Link>
   )

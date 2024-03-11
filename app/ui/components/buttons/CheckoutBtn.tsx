@@ -10,7 +10,6 @@ const CheckoutBtn = () => {
   const router = useRouter()
 
   const {data:session} = useSession()
-  console.log(session?.user?.email)
 
   const checkoutData = {
     email : session?.user?.email,
@@ -21,7 +20,6 @@ const CheckoutBtn = () => {
     if(session?.user){
       try {
         if(checkoutData.email){
-          console.log(checkoutData)
 
           const response = await axios.post('/api/payment', {...checkoutData})
         
@@ -35,7 +33,6 @@ const CheckoutBtn = () => {
   
           router.push(authorization_url);
         } else {
-          console.log(response);
           throw new Error('An error occurred while processing the payment');
         }
         }

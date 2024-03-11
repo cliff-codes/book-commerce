@@ -38,7 +38,6 @@ const CheckoutPage = () => {
 
             router.push(authorization_url);
           } else {
-            console.log(response);
             throw new Error('An error occurred while processing the payment');
           }
 

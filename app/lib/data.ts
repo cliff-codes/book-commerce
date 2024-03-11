@@ -4,7 +4,6 @@ import { connectToDB } from "./utils"
 
 
 export const fetchBooks = async() => {
-    console.log("Connecting to DB")
     try {
         await connectToDB()
 
@@ -17,7 +16,6 @@ export const fetchBooks = async() => {
         return {books}
 
     } catch (error) {
-        console.log(error)
         return error
     }
 }
