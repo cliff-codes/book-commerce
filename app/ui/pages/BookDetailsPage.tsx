@@ -46,7 +46,7 @@ const BookDetailsPage = ({book}: any) => {
                         >+</button>
                     </div>
 
-                    <button disabled = {addedToCart} className= "btn btn-sm text-sm custom-xs:btn-md custom-xs:text-base bg-orange-500 text-slate-50 hover:bg-orange-500"
+                    <button disabled = {addedToCart} className= "btn btn-md text-sm custom-xs:btn-md custom-xs:text-base bg-orange-500 text-slate-50 hover:bg-orange-500"
                         onClick={() => {addToCart({...book, qty: counter})
                         setAddedToCart(true)
                         setState(true)
