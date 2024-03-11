@@ -1,7 +1,6 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import SearchBtn from '../buttons/SearchBtn'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebounce } from 'use-debounce'
 
 
@@ -9,9 +8,6 @@ import { useDebounce } from 'use-debounce'
 const SearchBox = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
-  const {replace} = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
   const [query] = useDebounce(searchTerm, 500)
 
 

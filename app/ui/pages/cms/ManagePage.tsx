@@ -43,7 +43,7 @@ const ManagePage = async() => {
                 
                 {/* rows of books in catalog*/}
                 {
-                    books.map((book:Book) => (
+                        books && books.map((book:Book) => (
                          <ManageBookTableRow bookDescription={book.description} bookImgUrl={book.img} bookName={book.title.toString()} price={book.price} bookId= {book._id.toString()} key={book._id}/>
                     )) 
                 }
