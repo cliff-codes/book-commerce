@@ -7,7 +7,7 @@ const UserProfileModal = () => {
   return (
     
     <div className="dropdown dropdown-end">
-        <div tabIndex={0} role="button" className='btn p-0 py-0 rounded-full border-2 cursor-pointer'>
+        <div tabIndex={0} role="button" className='btn  rounded-full border-2 cursor-pointer'>
             <MdAccountCircle size={32}/>
         </div>
 
