@@ -25,7 +25,7 @@ const HomeNav = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </label>
               </div> 
-              <div className="flex-1 px-2 mx-2">
+              <div className="flex-1 px-1 mx-1">
                 <Logo/> 
               </div>
             </div>
@@ -37,7 +37,7 @@ const HomeNav = () => {
                 <NavLink route={'/About'} routeName={'About'}/>
               </div>
             </div>
-            <div className='flex gap-3 place-items-center'>
+            <div className='flex gap-1 place-items-center'>
               <CartInfoBtn/>
               
               {
