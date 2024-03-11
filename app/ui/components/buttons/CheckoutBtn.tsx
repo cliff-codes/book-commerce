@@ -10,16 +10,20 @@ const CheckoutBtn = () => {
   const router = useRouter()
 
   const {data:session} = useSession()
+  console.log(session?.user?.email)
 
   const checkoutData = {
     email : session?.user?.email,
-    amount: getTotalCost()
+    amount: Number(getTotalCost())
   }
 
   const handleClick = async() => {
     if(session?.user){
       try {
-        const response = await axios.post('/api/payment', {...checkoutData})
+        if(checkoutData.email){
+          console.log(checkoutData)
+
+          const response = await axios.post('/api/payment', {...checkoutData})
         
         if (response.status === 200) {
           // Assuming the API returns a JSON response
@@ -34,8 +38,8 @@ const CheckoutBtn = () => {
           console.log(response);
           throw new Error('An error occurred while processing the payment');
         }
+        }
       } catch (error) {
-        console.log(error)
         router.push('/')
       }
     }else{
