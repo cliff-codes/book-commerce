@@ -27,11 +27,10 @@ import { NextResponse } from "next/server";
 // }
 
 export async function GET(req: Request){
-  console.log("hitting this end point")
   const {searchParams} = new URL(req.url)
   const query = searchParams.get('query')
 
-  console.log("Query is :"+query)
+  
 
   //connect to DB
   await connectToDB()
@@ -41,7 +40,7 @@ export async function GET(req: Request){
       const books = await searchedBooks(query)
       return Response.json(books)
     } catch (error) {
-      console.log(error)
+      (error)
       return Response.json({error: "Failed to fetch data"})
     }
   }

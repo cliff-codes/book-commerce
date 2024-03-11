@@ -15,10 +15,6 @@ const CartPage = () => {
     setTotalBooks(books)
   }, [getNumberOfPersistedBooks])
 
-  console.log(totalBooks)
-  
-
-
 
   return (
     <div className='flex flex-col place-items-center pt-10 gap-2'>

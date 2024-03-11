@@ -30,15 +30,11 @@ export const useSearchStore = create<SearchState>((set, get) => ({
   
         const rawData = await res.json();
         const data = await JSON.parse(rawData)
-        console.log(data)
+       
         if (Array.isArray(data)) {
-            set({ searchResults: [...data], loading: false, error: null, dataFetched: true });
-            
-            
+            set({ searchResults: [...data], loading: false, error: null, dataFetched: true });  
         }else{
             set({searchResults: [ data], dataFetched: true})
-            console.log(data)
-
         }
       } catch (error) {
         console.error('Error fetching search data:', error);

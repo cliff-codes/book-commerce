@@ -55,10 +55,11 @@ const RegisterPage = () => {
                 //redirect
                 router.push('/')
             }else{
-                console.log("user registration failed")
+                setError("user registration failed")
             }
         } catch (error) {
-            console.log("Error during registration", error)
+            setError("Error during registration")
+            console.log(error)
         }
     }
 
@@ -78,7 +79,7 @@ const RegisterPage = () => {
 
             <label className="form-control w-full max-w-xs">
                 <div className="label">
-                    <span className="label-text font-medium">password</span>
+                    <span className="label-text font-medium">email</span>
                 </div>
                 <input name='email' type="email" placeholder="enter email" className="input input-bordered w-full max-w-xs focus:outline-none"  
                     onChange={(e) => {setData({...data, email: e.target.value})}}

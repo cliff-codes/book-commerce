@@ -30,6 +30,7 @@ const StoreLoginPage = () => {
             }
             router.push('/')
         } catch (error) {
+            setError("Error occured, refresh page")
             console.log(error)
         }
     }

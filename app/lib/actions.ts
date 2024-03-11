@@ -91,8 +91,7 @@ export const addUser = async(e:FormData) => {
         await newUser.save()
 
     } catch (error) {
-        console.log(error)
-        throw new Error("Failed to create account")
+        NextResponse.json({error, "message": "Failed to create account"})
     }
     redirect("/login")
 }

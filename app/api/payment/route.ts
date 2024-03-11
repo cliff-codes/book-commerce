@@ -13,10 +13,9 @@ export async function POST(req: any, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return NextResponse.json({ message: 'Unsupported method' }, { status: 405 });
   }
-  console.log(await req.body)
+  
   try {
     const { email, amount } = await req.json();
-    console.log(email, amount)
     const secretKey = process.env.PAYSTACK_SECRET_KEY;
 
     if (!secretKey) {
