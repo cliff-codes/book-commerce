@@ -17,7 +17,7 @@ const CartItemCard = ({img, title, price, qty, id}: book) => {
     const {removeBook, decreaseQty, increaseQty} = useCartStore()
 
     return (
-    <div className='flex gap-10 place-items-center hover:bg-slate-200 p-8 transition-all .1s ease-linear'>
+    <div className='flex gap-2 place-items-center hover:bg-slate-200 p-8 transition-all .1s ease-linear'>
         <div className='w-32'>
             <Image width={100} height={100} src= {img} alt='img of book' />
         </div>
