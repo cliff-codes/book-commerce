@@ -22,7 +22,7 @@ const CartPage = () => {
 
         <div className='w-full max-w-xl min-h-80 rounded-lg bg-gray-50 mb-5 px-4 box-border'>
               {
-                totalBooks > 0 ?  <div className='w-full flex flex-col place-items-center my-8'>
+                totalBooks > 0 ?  <div className='w-full flex flex-col place-items-center my-8 mx-2 box-border px-2'>
                 {books.map((book:any) => (
                   <CartItemCard img = {book.img} title = {book.title} price = {book.price} qty = {book.qty} id = {book._id} key={book._id}/>
                 ))}
