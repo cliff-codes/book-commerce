@@ -44,7 +44,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     return NextResponse.json(response.data);
   } catch (error) {
     console.error('Payment processing error:', error);
-    return NextResponse.json({ error: 'Payment processing failed' }, { status: 500 });
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }
 
