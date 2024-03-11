@@ -17,7 +17,7 @@ const TopSellingSection = async() => {
 
 
             {/* fetch books data from the database to populate this section */}
-            <div className='grid grid-cols-2 custom-xs:grid-cols-2 sm:grid-cols-3
+            <div className='grid grid-cols-1 custom-xs:grid-cols-2 sm:grid-cols-3
             lg:grid-cols-4  gap-5'>
 
               {

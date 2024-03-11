@@ -27,7 +27,9 @@ const CartInfoBtn = () => {
           {numPersistedBooks} 
         </div>
         <RiShoppingCartLine size={24}/>
-        <div>${totalCost}</div>
+        <div className='hidden custom-xs:flex'>
+          <div>${totalCost}</div>
+        </div>
       </button>
     </Link>
   )
