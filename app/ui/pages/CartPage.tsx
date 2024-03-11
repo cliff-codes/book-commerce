@@ -20,13 +20,13 @@ const CartPage = () => {
     <div className='flex flex-col place-items-center pt-10 gap-2'>
         <h1 className='text-xl custom-xs:2xl font-bold'>Cart</h1>
 
-        <div className='w-full max-w-xl min-h-80 rounded-lg bg-gray-50 mb-5'>
+        <div className='w-full max-w-xl min-h-80 rounded-lg bg-gray-50 mb-5 px-4 box-border'>
               {
                 totalBooks > 0 ?  <div className='w-full flex flex-col place-items-center my-8'>
                 {books.map((book:any) => (
                   <CartItemCard img = {book.img} title = {book.title} price = {book.price} qty = {book.qty} id = {book._id} key={book._id}/>
                 ))}
-                  <div className='w-full flex flex-col place-items-center gap-5'>
+                  <div className='w-full flex flex-col place-items-center gap-5 '>
                       <h1 className='custom-xs:text-lg font-semibold'>Total: ${getTotalCost()}</h1>
 
                       <CheckoutBtn/>
