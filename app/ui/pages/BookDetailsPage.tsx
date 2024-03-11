@@ -37,11 +37,11 @@ const BookDetailsPage = ({book}: any) => {
                 </div>
                 <div className='flex  flex-col gap-2'>
                     <div className='w-full flex justify-center place-items-center'>
-                        <button className='btn btn-sm custom-xs:btn-md'
+                        <button className='btn btn-md custom-xs:btn-md'
                             onClick={() => addedToCart ? decreaseQty(book._id) : decrease(1)}
                         >-</button>
                         <span className='px-5'>{qty}</span>
-                        <button className='btn btn-sm custom-xs:btn-md'
+                        <button className='btn btn-md custom-xs:btn-md'
                             onClick={() => addedToCart ? increaseQty(book._id) : increase(1)}
                         >+</button>
                     </div>
