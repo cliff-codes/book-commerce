@@ -23,7 +23,7 @@ const CartInfoBtn = () => {
   return (
     <Link href={'/cart'}>
       <button className='btn btn-sm sm:btn-md flex'>
-        <div className=' badge badge-primary badge-md'>
+        <div className=' text-sm badge badge-primary badge-md'>
           {numPersistedBooks} 
         </div>
         <RiShoppingCartLine size={24}/>
