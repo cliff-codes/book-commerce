@@ -4,8 +4,8 @@ import BookCard from '../components/utilityComponents/BookCard'
 import SectionTitle from '../components/textUi/SectionTitle'
 
 const ShopData = async() => {
-    const {books} : any = await fetchBooks()
-
+    const books  = await fetchBooks()
+    
   return (
      <div className='w-full'>
 
@@ -16,7 +16,7 @@ const ShopData = async() => {
         <div className='w-full grid grid-cols-1 custom-sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center justify-center mb-4 '>
                 
             {
-            books.map((book : any) => (
+            books.map((book) => (
                 <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id}/>
             ))
             }

@@ -2,21 +2,32 @@
 import React, { useState } from 'react'
 import SearchBtn from '../buttons/SearchBtn'
 import { useDebounce } from 'use-debounce'
+import { useSearchStore } from '@/app/searchStore'
+import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+
 
 
 
 const SearchBox = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
-  const [query] = useDebounce(searchTerm, 500)
+  const {getSearchedData}: any = useSearchStore()
+  const pathname = usePathname()
+  const router = useRouter()
 
 
 
   const handleSearch = async (event: React.MouseEvent<HTMLElement> ) => {
     event.preventDefault();
-    const url = new URL('/Shop/search', window.location.origin);
-    url.searchParams.set('query', searchTerm);
-    window.location.href = url.toString(); // Redirect to the search route
+ 
+    if(pathname == "/Shop/search"){
+      getSearchedData(searchTerm)
+    }else{
+      router.push("/Shop/search")
+      getSearchedData(searchTerm)
+    }
+
   };
 
   return (

@@ -1,23 +1,33 @@
+"use server"
+
 import { Book } from "./models"
 import { connectToDB } from "./utils"
 
+interface Book {
+    _id: any,
+    title: string,
+    description: string,
+    category: string,
+    price: number,
+    img: string
+}
 
 
-export const fetchBooks = async() => {
-    try {
-        await connectToDB()
+export const fetchBooks = async(): Promise<Book[]> => {
+    await connectToDB()
 
-        const res = await Book.find({})
-       
-        const books = res.map(book => {
-            return book._doc
-        })
+    const books:Book[] = await Book.find({}).lean()
 
-        return {books}
+    const bookData:Book[] = books.map(book  => ({
+        _id: book._id.toString(),
+        title: book.title,
+        description: book.description,
+        category: book.category,
+        price : book.price,
+        img: book.img
+    }))
 
-    } catch (error) {
-        return error
-    }
+    return bookData
 }
 
 
@@ -38,7 +48,7 @@ export const searchedBooks = async(searchTerm: string) => {
 
         //combined results with the exact-matches at the top and the partial matches below.
         const combinedResults = [...exactMatches, ...partialMatches]
-
+       
         return JSON.stringify(combinedResults)
     } catch (error) {
         throw new Error("Failed to search")

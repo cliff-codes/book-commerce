@@ -37,7 +37,6 @@ export const useSearchStore = create<SearchState>((set, get) => ({
             set({searchResults: [ data], dataFetched: true})
         }
       } catch (error) {
-        console.error('Error fetching search data:', error);
         set({ loading: false, error: 'Unknown error' });
       }
     },
