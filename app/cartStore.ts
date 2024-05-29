@@ -19,7 +19,7 @@ export const useCartStore = create(persist((set, get) => ({
     })),
 
     decreaseQty: (bookId: string) => set((state:any) => ({
-        books: state.books.map((book:any) => book._id === bookId ? { ...book, qty: book.qty > 1 ? book.qty -1 : null } : book)
+        books: state.books.map((book:any) => book._id === bookId ? { ...book, qty: book.qty > 1 ? book.qty -1 : book.qty } : book)
     })),
 
     //reset to initial state
