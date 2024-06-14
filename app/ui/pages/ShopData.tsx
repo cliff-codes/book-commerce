@@ -17,7 +17,7 @@ const ShopData = async() => {
                 
             {
             books.map((book) => (
-                <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id}/>
+                <BookCard key={book._id} title={book.title} price={book.price} coverImg={book.img} id={book._id} description={book.description}/>
             ))
             }
             
