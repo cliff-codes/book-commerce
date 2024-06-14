@@ -25,7 +25,7 @@ export async function POST(req: any, res: NextApiResponse) {
     const data = {
       email,
       amount: amount * 100, // Paystack expects the amount in the smallest currency unit
-      callback_url: "https://book-commerce-psi.vercel.app/", 
+      callback_url: "https://book-commerce-black.vercel.app/", 
       currency: "GHS"
     };
 
