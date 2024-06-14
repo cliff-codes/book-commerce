@@ -12,7 +12,7 @@ interface BookData {
 }
 
 const BookCard = ({title, price, coverImg,id, description} : BookData) => {
-
+  console.log({title, price, coverImg, id})
   const formatString = (desc: string):string => {
     const formattedString = desc.length > 50 ? `${desc.substring(0,50)}...` : desc
     return formattedString
