@@ -17,14 +17,6 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
     const query = searchParams?.query || "";
     const { searchResults, loading, error, dataFetched} : any = useSearchStore()
 
-    // useEffect(() => {
-    //     const getData = async() => {
-    //         if(!query) return
-    //         await getSearchedData(query)
-    //     }
-    //     getData()
-    // },[query])
-
   return (
     <div className='w-full flex flex-col place-items-center bg-slate-100 h-full'>
 
@@ -39,7 +31,7 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
             lg:grid-cols-4  gap-5 mx-3 mb-2 justify-center place-content-center'>
                 {
                     searchResults.map((el: any) => (
-                        <BookCard key={el._id} coverImg={el.img} price={el.price} id={el._id} title={el.title}/>
+                        <BookCard key={el._id} coverImg={el.img} price={el.price} id={el._id} title={el.title} description={el.description}/>
                    ))
                 }
             </div> : null}
