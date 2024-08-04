@@ -23,7 +23,7 @@ const RegisterPage = () => {
         }else{
             setError("")
         }
-        if(data.password.length < 8){
+        if(data.password.length < 7){
             setError("Password must be at least 8 characters long")
             return false
         }

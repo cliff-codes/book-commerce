@@ -24,6 +24,7 @@ export const authOptions:AuthOptions = {
 
                 // You might need to adjust this part based on how you've implemented `User.findOne`
                 const user = await User.findOne({ email: credentials.email });
+                console.log(user)
 
                 if (!user) {
                     throw new Error('No user found with the email');
