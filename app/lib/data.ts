@@ -14,20 +14,24 @@ interface Book {
 
 
 export const fetchBooks = async(): Promise<Book[]> => {
-    await connectToDB()
+    try {
+        await connectToDB()
+        
+        const books:Book[] = await Book.find({}).lean()
 
-    const books:Book[] = await Book.find({}).lean()
-
-    const bookData:Book[] = books.map(book  => ({
-        _id: book._id.toString(),
-        title: book.title,
-        description: book.description,
-        category: book.category,
-        price : book.price,
-        img: book.img
-    }))
-
-    return bookData
+        const bookData:Book[] = books.map(book  => ({
+            _id: book._id.toString(),
+            title: book.title,
+            description: book.description,
+            category: book.category,
+            price : book.price,
+            img: book.img
+        }))
+    
+        return bookData
+    } catch (error: any) {
+        return error.message
+    }
 }
 
 

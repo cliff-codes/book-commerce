@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./ui/components/navs/Nav";
 import Footer from "./ui/components/sections/Footer";
 import { AuthProvider } from "./Providers";
+import QueryProvider from "./ui/components/providers/QueryProvider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,16 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-        <body className='h-screen flex flex-col '>
-          <div className="flex-1">
-            <AuthProvider>
-              <Nav/>
-              {children}
-            </AuthProvider>
-          </div>
-          <Footer/>
-        </body>
-    </html>
+    <QueryProvider>
+      <html lang="en">
+          <body className='h-screen flex flex-col '>
+            <div className="flex-1">
+              <AuthProvider>
+                <Nav/>
+                {children}
+              </AuthProvider>
+            </div>
+            <Footer/>
+          </body>
+      </html>
+    </QueryProvider>
   );
 }
