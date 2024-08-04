@@ -14,6 +14,30 @@ const StoreLoginPage = () => {
 
     const [error, setError] = useState("")
 
+    //validate password strenght and validate email
+    const validateForm = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if(!emailRegex.test(data.email)){
+            setError("Invalid email address")
+            return false
+        }
+        if(data.password.length < 8){
+            setError("Password must be at least 8 characters long")
+            return false
+        }
+        return true
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setData({...data, [e.target.name]: e.target.value})
+        validateForm()
+    }
+
+    const handleReset = () => {
+        setData({email: "", password: ""})
+        setError("")
+    }
+
     const handleSubmit = async(e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const {email, password} = data
@@ -25,12 +49,12 @@ const StoreLoginPage = () => {
             })
 
             if(res?.error){
-                setError("Invalid Credentials")
+                setError(res.error)
                 return
             }
             router.push('/')
-        } catch (error) {
-            setError("Error , refresh page")
+        } catch (error: any) {
+            setError(error.message)
         }
     }
 
@@ -43,7 +67,7 @@ const StoreLoginPage = () => {
                     <span className="label-text font-medium">email</span>
                 </div>
                 <input type={"email"} placeholder={"enter e-mail"} className="input input-bordered w-full max-w-xs focus:outline-none" 
-                    onChange={(e) => setData({...data, email: e.target.value})}
+                    onChange={(e) => handleChange(e)}
                 />
             </label>
 
@@ -52,7 +76,7 @@ const StoreLoginPage = () => {
                     <span className="label-text font-medium">password</span>
                 </div>
                 <input type="password" placeholder="enter password" className="input input-bordered w-full max-w-xs focus:outline-none" 
-                    onChange={(e) => setData({...data, password: e.target.value})}
+                    onChange={(e) => handleChange(e)}
                 />
             </label>
 
@@ -69,7 +93,9 @@ const StoreLoginPage = () => {
             <div className='text-center text-sm py-1'>{`Don't have an account?`}</div>
 
             <Link href={'/register'}>
-                <button className='btn w-full'>register</button>
+                <button
+                    onClick={handleReset}
+                className='btn w-full'>register</button>
             </Link>
         </form>
     </div>

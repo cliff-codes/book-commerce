@@ -11,6 +11,32 @@ const RegisterPage = () => {
         email: "",
         password: ""
     })
+
+    //validate passoword strength and validate email
+    //add more complexity to password validation
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const validateForm = () => {
+        if(!emailRegex.test(data.email)){
+            setError("Invalid email address")
+            return false
+        }else{
+            setError("")
+        }
+        if(data.password.length < 8){
+            setError("Password must be at least 8 characters long")
+            return false
+        }
+        return true
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setData({...data, [e.target.name]: e.target.value})
+        validateForm()
+    }
+
+    
+
     const [error, setError] = useState("")
 
     const registerUser = async (e:React.FormEvent<HTMLFormElement>) => {
@@ -57,8 +83,8 @@ const RegisterPage = () => {
             }else{
                 setError("user registration failed")
             }
-        } catch (error) {
-            setError("Error during registration")
+        } catch (error: any) {
+            setError(error.message)
         }
     }
 
@@ -72,7 +98,7 @@ const RegisterPage = () => {
                     <span className="label-text font-medium">full name</span>
                 </div>
                 <input name='username' type="text" placeholder="enter name" className="input input-bordered w-full max-w-xs focus:outline-none" 
-                    onChange={(e) => {setData({...data, username: e.target.value})}}
+                    onChange={(e) => handleChange(e)}
                 />
             </label>
 
@@ -81,7 +107,7 @@ const RegisterPage = () => {
                     <span className="label-text font-medium">email</span>
                 </div>
                 <input name='email' type="email" placeholder="enter email" className="input input-bordered w-full max-w-xs focus:outline-none"  
-                    onChange={(e) => {setData({...data, email: e.target.value})}}
+                    onChange={(e) => handleChange(e)}
                 />
             </label>
 
@@ -90,7 +116,7 @@ const RegisterPage = () => {
                     <span className="label-text font-medium">password</span>
                 </div>
                 <input name='password' type="password" placeholder="enter password" className="input input-bordered w-full max-w-xs focus:outline-none" 
-                    onChange={(e) => {setData({...data, password: e.target.value})}}
+                    onChange={(e) => handleChange(e)}
                 />
             </label>
             
@@ -98,7 +124,7 @@ const RegisterPage = () => {
                 error && <div className='w-full bg-red-300 h-8 flex place-items-center justify-center rounded-md mt-1 text-red-600'>{error}</div>
             }
 
-            <button type='submit' className='btn w-full mt-6 bg-orange-500 text-slate-50 hover:bg-orange-600'>
+            <button type='submit' disabled = {(data.email && data.password.length >= 8 && data.username && emailRegex.test(data.email)) ? false : true } className='btn w-full mt-6 bg-orange-500 text-slate-50 hover:bg-orange-600'>
                 register
             </button>
            
