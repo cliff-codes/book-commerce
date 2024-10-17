@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -11,6 +11,8 @@ const RegisterPage = () => {
         email: "",
         password: ""
     })
+    const [passwordErr, setPasswordErr] = useState<string | null>(null)
+    const [emailErr, setEmailErr] = useState<string | null>(null)
 
     //validate passoword strength and validate email
     //add more complexity to password validation
@@ -18,22 +20,24 @@ const RegisterPage = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const validateForm = () => {
         if(!emailRegex.test(data.email)){
-            setError("Invalid email address")
-            return false
+            setEmailErr("Invalid email address")
         }else{
-            setError("")
+            setEmailErr("")
         }
-        if(data.password.length < 7){
-            setError("Password must be at least 8 characters long")
-            return false
+        if(data.password.length < 8){
+            setPasswordErr("Password must be at least 8 characters long")
+        }else{
+            setPasswordErr(null)
         }
-        return true
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setData({...data, [e.target.name]: e.target.value})
-        validateForm()
     }
+
+    useEffect(() => {
+       validateForm() 
+    },[data])
 
     
 
@@ -110,6 +114,9 @@ const RegisterPage = () => {
                     onChange={(e) => handleChange(e)}
                 />
             </label>
+            {
+                emailErr && <div className = "w-full h-8 flex place-items-center justify-left rounded-md text-red-600">{emailErr}</div>
+            }
 
             <label className="form-control w-full max-w-xs">
                 <div className="label">
@@ -121,7 +128,7 @@ const RegisterPage = () => {
             </label>
             
             {
-                error && <div className='w-full bg-red-300 h-8 flex place-items-center justify-center rounded-md mt-1 text-red-600'>{error}</div>
+                passwordErr && <div className='w-full h-8 flex place-items-center justify-left rounded-md mt-1 text-red-600'>{passwordErr}</div>
             }
 
             <button type='submit' disabled = {(data.email && data.password.length >= 8 && data.username && emailRegex.test(data.email)) ? false : true } className='btn w-full mt-6 bg-orange-500 text-slate-50 hover:bg-orange-600'>
