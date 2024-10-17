@@ -59,7 +59,7 @@ const BookDetailsPage = ({book}: any) => {
 
         <h1 className='text-lg font-medium mt-10'>About {book.title || null}</h1>
 
-        <h2 className='px-4'>
+        <h2 className='px-4 max-w-4xl'>
            {book.description}
         </h2>
 
