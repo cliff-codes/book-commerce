@@ -1,7 +1,7 @@
 'use client'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 const StoreLoginPage = () => {
 
@@ -11,28 +11,35 @@ const StoreLoginPage = () => {
         email: "",
         password: ""
     })
+    const [emailError, setEmailError] = useState<string | null>(null)
+    const [passwordError, setPasswordError] = useState<string | null>(null) 
 
     const [error, setError] = useState("")
 
     //validate password strenght and validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const validateForm = () => {
-        if(!emailRegex.test(data.email)){
-            setError("Invalid email address")
-            return false
-        }
-        if(data.password.length < 7){
-            setError("Password must be at least 8 characters long")
-            return false
-        }
-        return true
-    }
+    
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setData({...data, [e.target.name]: e.target.value})
         console.log(data)
-        validateForm()
     }
+
+    useEffect(() => {
+        console.log("hook is working")
+        const validateForm = () => {
+            if(!emailRegex.test(data.email)){
+                setEmailError("Invalid email address")
+            }else { setEmailError(null) }
+            
+            if(data.password.length < 8){
+                setPasswordError("Password must be at least 8 characters long")
+            }else { setPasswordError(null) }   
+        }
+        validateForm()
+    },[data])
+
+    console.log(emailError, passwordError)
 
     const handleSubmit = async(e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -69,6 +76,9 @@ const StoreLoginPage = () => {
                     onChange={(e) => handleChange(e)}
                 />
             </label>
+            {
+                emailError && <div className = "w-full text-red-600 flex justify-left place-items-center rounded-md py-1 mt-2">{emailError}</div>
+            }
 
             <label className="form-control w-full max-w-xs">
                 <div className="label">
@@ -80,12 +90,12 @@ const StoreLoginPage = () => {
             </label>
 
             {
-                error && <div className='w-full bg-red-300 text-red-600 flex justify-center place-items-center rounded-md py-1 mt-2'>{error}</div>
+                passwordError && <div className='w-full text-red-600 flex justify-left place-items-center rounded-md py-1 mt-2'>{passwordError}</div>
             }
 
             <div className='text-xs hover:text-orange-400 hover:cursor-pointer'>forgot password?</div>
 
-            <button type='submit' disabled = {(data.email && data.password.length >= 8 && emailRegex.test(data.email)) ? false : true } className='btn w-full mt-6 bg-orange-500 text-slate-50 hover:bg-orange-600'>
+            <button type='submit' disabled = {(data.email && data.password.length >= 9 && emailRegex.test(data.email)) ? false : true } className='btn w-full mt-6 bg-orange-500 text-slate-50 hover:bg-orange-600'>
                 login
             </button>
             
