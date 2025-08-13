@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 interface ConnectionsStatus {
     isConnected ?: number
@@ -7,6 +9,10 @@ interface ConnectionsStatus {
 let connection : ConnectionsStatus = {}
 const password = process.env.password
 
+// Utility function for merging class names
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export const connectToDB = async () => { 
     try {

@@ -1,12 +1,18 @@
-import React from 'react'
-import StorePage from '../ui/pages/StorePage'
+import { Metadata } from 'next';
+import StorePage from '../ui/pages/StorePage';
 
-const ShopPage = () => {
-  return (
-    <div className='flex-1 h-full bg-gray-50'>
-      <StorePage/>      
-    </div>
-  )
+export const metadata: Metadata = {
+  title: 'Shop - Browse Books | Bdocs',
+  description: 'Discover thousands of books across all genres. Browse fiction, non-fiction, science, history, and more. Find your next favorite read.',
+  keywords: 'books, online bookstore, fiction, non-fiction, science, history, biography, self-help, business, technology',
+  openGraph: {
+    title: 'Shop - Browse Books | Bdocs',
+    description: 'Discover thousands of books across all genres. Browse fiction, non-fiction, science, history, and more.',
+    type: 'website',
+    url: '/Shop',
+  },
+};
+
+export default function Shop() {
+  return <StorePage />;
 }
-
-export default ShopPage

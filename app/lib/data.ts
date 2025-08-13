@@ -30,7 +30,8 @@ export const fetchBooks = async(): Promise<Book[]> => {
     
         return bookData
     } catch (error: any) {
-        return error.message
+        console.error('Error fetching books:', error)
+        return []
     }
 }
 
@@ -61,16 +62,27 @@ export const searchedBooks = async(searchTerm: string) => {
 
 
 
-export const getBook =async (id:string) => {
+export const getBook = async (id: string) => {
     try {
+        // Validate if the id is a valid MongoDB ObjectId (24 character hex string)
+        if (!id || typeof id !== 'string' || !/^[0-9a-fA-F]{24}$/.test(id)) {
+            return null
+        }
+
         await connectToDB()
 
         const book = await Book.findById(id)
+        
+        if (!book) {
+            return null
+        }
+        
         const bookObject = book.toObject();
     
         return {...bookObject, _id: bookObject._id.toString()}
     } catch (error) {
-        throw new Error("Failed to fetch book")
+        console.error('Error fetching book:', error)
+        return null
     }
 }
 

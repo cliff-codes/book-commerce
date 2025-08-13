@@ -41,6 +41,24 @@ export const useCartStore = create(persist((set, get) => ({
     
 }), {
     name: "cart-storage",
-    getStorage: () => localStorage,
+    storage: {
+        getItem: (name) => {
+            if (typeof window !== 'undefined') {
+                const item = localStorage.getItem(name);
+                return item ? JSON.parse(item) : null;
+            }
+            return null;
+        },
+        setItem: (name, value) => {
+            if (typeof window !== 'undefined') {
+                localStorage.setItem(name, JSON.stringify(value));
+            }
+        },
+        removeItem: (name) => {
+            if (typeof window !== 'undefined') {
+                localStorage.removeItem(name);
+            }
+        },
+    },
     partialize: (state: any) => ({books: state.books}) 
 }))
