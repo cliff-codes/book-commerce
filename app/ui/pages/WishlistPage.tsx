@@ -37,7 +37,7 @@ const WishlistPage = () => {
             Your Wishlist is Empty
           </h1>
           <p className="text-neutral-600 mb-8 max-w-md mx-auto">
-            Start building your reading list by adding books you'd like to read later.
+            Start building your reading list by adding books you&apos;d like to read later.
           </p>
           <Link href="/Shop">
             <Button variant="primary" size="lg">

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button, Input } from '../../components/design-system'
@@ -19,7 +19,7 @@ const RegisterPage = () => {
     const [error, setError] = useState("")
 
     //validate password strength and validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = useMemo(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/, [])
     
     // Password strength validation
     const validatePassword = (password: string) => {
@@ -32,7 +32,7 @@ const RegisterPage = () => {
         return { minLength, hasUpperCase, hasLowerCase, hasNumbers, hasSpecialChar }
     }
 
-    const validateForm = () => {
+    const validateForm = useCallback(() => {
         if(data.email && !emailRegex.test(data.email)){
             setEmailErr("Please enter a valid email address")
         } else {
@@ -49,7 +49,7 @@ const RegisterPage = () => {
         } else {
             setPasswordErr(null)
         }
-    }
+    }, [data, emailRegex])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setData({...data, [e.target.name]: e.target.value})
@@ -62,7 +62,7 @@ const RegisterPage = () => {
 
     useEffect(() => {
        validateForm() 
-    },[data])
+    },[validateForm])
 
     const registerUser = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()

@@ -1,7 +1,7 @@
 'use client'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button, Input } from '../../components/design-system'
 import { FiMail, FiLock, FiEye, FiEyeOff, FiBookOpen } from 'react-icons/fi'
@@ -20,7 +20,7 @@ const StoreLoginPage = () => {
     const [error, setError] = useState("")
 
     //validate password strength and validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = useMemo(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/, [])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setData({...data, [e.target.name]: e.target.value})
@@ -222,7 +222,7 @@ const StoreLoginPage = () => {
                     {/* Sign Up Link */}
                     <div className="text-center">
                         <p className="text-neutral-600">
-                            Don't have an account?{' '}
+                            Don&apos;t have an account?{' '}
                             <Link 
                                 href="/register" 
                                 className="text-primary-600 hover:text-primary-700 font-medium transition-colors"

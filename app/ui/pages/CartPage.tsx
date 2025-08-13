@@ -37,7 +37,7 @@ const CartPage = () => {
             Your Cart is Empty
           </h1>
           <p className="text-neutral-600 mb-8 max-w-md mx-auto">
-            Looks like you haven't added any books to your cart yet. Start shopping to discover amazing reads!
+            Looks like you haven&apos;t added any books to your cart yet. Start shopping to discover amazing reads!
           </p>
           <Link href="/Shop">
             <Button variant="primary" size="lg">
@@ -76,7 +76,7 @@ const CartPage = () => {
         <div className="lg:col-span-2">
           <div className="space-y-4">
             <AnimatePresence>
-              {cartItems.map((item, index) => (
+              {cartItems.map((item: any, index: number) => (
                 <motion.div
                   key={item._id}
                   initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import ProductsLoaderSkeleton from '@/app/ui/components/Skeletons/ProductsLoaderSkeleton';
 import SearchBox from '@/app/ui/components/utilityComponents/SearchBox';
 import BookCard from '@/app/ui/components/utilityComponents/BookCard';
@@ -17,9 +17,13 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
     const query = searchParams?.query || "";
     const { searchResults, loading, error, dataFetched, getSearchedData} : any = useSearchStore()
 
-    useEffect(() => {
+    const handleSearch = useCallback(() => {
         getSearchedData(query)
-    }, [query])
+    }, [getSearchedData, query])
+
+    useEffect(() => {
+        handleSearch()
+    }, [handleSearch])
 
   return (
     <div className='w-full flex flex-col place-items-center bg-slate-100 h-full'>
@@ -43,7 +47,7 @@ const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
             </div> : null}
 
                 {/* search results not found message */}
-            {dataFetched && searchResults.length == 0 && <div className='font-bold text-[18px]'>{ `"${query}" wasn't found in our books collection` }</div>}
+            {dataFetched && searchResults.length == 0 && <div className='font-bold text-[18px]'>{ `"${query}" wasn&apos;t found in our books collection` }</div>}
 
             {/* error when fetching the data */}
             {error && <div>Search error, please reload :( </div>}

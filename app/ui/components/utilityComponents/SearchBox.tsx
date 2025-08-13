@@ -123,21 +123,21 @@ const SearchBox = ({
                                     className="w-full text-left px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-50 rounded transition-colors duration-150"
                                     onClick={() => setSearchTerm(`${searchTerm} fiction`)}
                                 >
-                                    "{searchTerm}" fiction
+                                    &quot;{searchTerm}&quot; fiction
                                 </button>
                                 <button
                                     type="button"
                                     className="w-full text-left px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-50 rounded transition-colors duration-150"
                                     onClick={() => setSearchTerm(`${searchTerm} non-fiction`)}
                                 >
-                                    "{searchTerm}" non-fiction
+                                    &quot;{searchTerm}&quot; non-fiction
                                 </button>
                                 <button
                                     type="button"
                                     className="w-full text-left px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-50 rounded transition-colors duration-150"
                                     onClick={() => setSearchTerm(`${searchTerm} bestseller`)}
                                 >
-                                    "{searchTerm}" bestseller
+                                    &quot;{searchTerm}&quot; bestseller
                                 </button>
                             </div>
                         </div>

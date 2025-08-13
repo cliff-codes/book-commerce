@@ -42,7 +42,7 @@ const TopSellingSection = () => {
                             Oops! Something went wrong
                         </div>
                         <p className="text-neutral-600">
-                            We couldn't load the books right now. Please try again later.
+                            We couldn&apos;t load the books right now. Please try again later.
                         </p>
                     </div>)
                 }
