@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useWishlistStore } from '@/app/wishlistStore';
-import { Card, Button, Badge } from '../design-system';
+import { Card, Button, Badge } from '../components/design-system';
 import { FiHeart, FiShoppingCart, FiTrash2, FiEye, FiStar } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';

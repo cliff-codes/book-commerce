@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useCartStore } from '@/app/cartStore';
-import { Card, Button, Input, Badge } from '../design-system';
+import { Card, Button, Input, Badge } from '../components/design-system';
 import { FiArrowLeft, FiArrowRight, FiLock, FiCreditCard, FiTruck, FiCheck } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -375,7 +375,7 @@ const CheckoutPage = () => {
                     <div>
                       <h3 className="font-medium text-neutral-900 mb-3">Order Items</h3>
                       <div className="space-y-3">
-                        {books.map((item) => (
+                        {books.map((item: any) => (
                           <div key={item._id} className="flex items-center gap-4 p-3 bg-neutral-50 rounded-lg">
                             <div className="relative w-16 h-20 flex-shrink-0">
                               <Image

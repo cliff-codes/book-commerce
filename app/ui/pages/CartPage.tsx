@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useCartStore } from '@/app/cartStore';
-import { Card, Button, Badge } from '../design-system';
+import { Card, Button, Badge } from '../components/design-system';
 import { FiTrash2, FiMinus, FiPlus, FiArrowLeft, FiLock, FiShoppingCart } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
