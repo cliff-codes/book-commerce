@@ -1,14 +1,14 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDB } from '@/app/lib/utils';
-import Book from '@/app/lib/models';
+import { Book } from '@/app/lib/models';
 
 export async function GET(request: NextRequest) {
   try {
     await connectToDB();
     
     const { searchParams } = new URL(request.url);
-    const query = searchParams.get('q') || '';
+    const query = searchParams.get('query') || '';
     const category = searchParams.get('category');
     const author = searchParams.get('author');
     const minPrice = searchParams.get('minPrice');

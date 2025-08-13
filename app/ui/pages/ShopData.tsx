@@ -3,7 +3,7 @@
 import { fetchBooks } from '@/app/lib/data'
 import React from 'react'
 import BookCard from '../components/utilityComponents/BookCard'
-import { LoadingContainer, GridSkeleton } from '../components/design-system'
+import { LoadingContainer } from '../components/design-system'
 import { useQuery } from '@tanstack/react-query';
 
 interface ShopDataProps {

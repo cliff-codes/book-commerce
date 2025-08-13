@@ -41,7 +41,7 @@ const StorePage = () => {
                         <div className='flex items-center gap-4'>
                             {/* Search Box */}
                             <div className='flex-1 max-w-md'>
-                                <SearchBox />
+                                <SearchBox variant="default" />
                             </div>
 
 

@@ -209,7 +209,7 @@ const StickyHeader = () => {
           {/* Search Bar */}
           {isSearchOpen && (
             <div className="pb-4 animate-slide-down">
-              <SearchBox />
+              <SearchBox variant="compact" />
             </div>
           )}
         </div>
@@ -253,7 +253,7 @@ const StickyHeader = () => {
                 {/* Mobile Search */}
                 <div className="mt-8">
                   <h3 className="text-sm font-medium text-neutral-500 mb-3">Search</h3>
-                  <SearchBox />
+                  <SearchBox variant="mobile" />
                 </div>
               </nav>
 

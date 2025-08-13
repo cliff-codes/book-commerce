@@ -15,12 +15,18 @@ interface SearchProps {
 const SearchPage: React.FC<SearchProps> = ({ searchParams }) => {
 
     const query = searchParams?.query || "";
-    const { searchResults, loading, error, dataFetched} : any = useSearchStore()
+    const { searchResults, loading, error, dataFetched, getSearchedData} : any = useSearchStore()
+
+    useEffect(() => {
+        getSearchedData(query)
+    }, [query])
 
   return (
     <div className='w-full flex flex-col place-items-center bg-slate-100 h-full'>
 
-      <div className='mt-4'><SearchBox/></div>
+      <div className='mt-4'>
+          <SearchBox variant="default" />
+      </div>
     
         <div className='mt-4 w-full max-w-7xl flex'>
             {/* when page is loading */}

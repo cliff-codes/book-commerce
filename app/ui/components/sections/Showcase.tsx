@@ -34,7 +34,7 @@ const Showcase = () => {
 
                         <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
                             <div className="flex-1 max-w-md">
-                                <SearchBox />
+                                <SearchBox variant="hero" className='h-14'/>
                             </div>
                             <Button
                                 size="lg"
