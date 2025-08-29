@@ -47,7 +47,7 @@ const SearchBox = ({
             case 'hero':
                 return {
                     container: "w-full max-w-2xl mx-auto",
-                    input: "pr-12 bg-white/95 backdrop-blur-sm border-white/20 text-neutral-900 placeholder:text-neutral-500 focus:bg-white shadow-lg",
+                    input: "pr-12  bg-white/95 backdrop-blur-sm border-white/20 text-neutral-900 placeholder:text-neutral-500 focus:bg-white shadow-lg",
                     button: "absolute right-1 h-10 px-4 bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg transition-all duration-200"
                 };
             case 'compact':
@@ -80,7 +80,7 @@ const SearchBox = ({
                     <Input
                         type="text"
                         placeholder={placeholder}
-                        className={`${styles.input} transition-all duration-200`}
+                        className={`${styles.input} transition-all duration-200 h-[50px]`}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         onFocus={() => setIsFocused(true)}

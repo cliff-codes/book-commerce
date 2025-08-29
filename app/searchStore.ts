@@ -1,5 +1,5 @@
 
-import {create} from 'zustand'
+import { create } from 'zustand'
 
 
 interface SearchState {
@@ -16,29 +16,26 @@ const initialState: SearchState = {
     dataFetched: false
 }
 
-export const useSearchStore = create<SearchState>((set, get) => ({
+export const useSearchStore = create<SearchState>((set) => ({
     ...initialState,
-  
+
     getSearchedData: async (query: string) => {
-      set({ loading: true }); // Update loading state
-  
-      try {
-        const res = await fetch(`/api/search?query=${query}`);
-        if (!res.ok) {
-          throw new Error(`API request failed with status ${res.status}`);
+        set({ loading: true }); // Update loading state
+
+        try {
+            console.log("Fetching data for query:", query);
+            const res = await fetch(`/api/search?query=${query}`);
+            if (!res.ok) {
+                throw new Error(`API request failed with status ${res.status}`);
+            }
+
+            const rawData = await res.json();
+            console.log("Raw data received:", rawData);
+            set({ searchResults: [...rawData], loading: false, error: null, dataFetched: true });
+
+        } catch (error) {
+            set({ loading: false, error: 'Unknown error', dataFetched: false });
         }
-  
-        const rawData = await res.json();
-        const data = await JSON.parse(rawData)
-       
-        if (Array.isArray(data)) {
-            set({ searchResults: [...data], loading: false, error: null, dataFetched: true });  
-        }else{
-            set({searchResults: [ data], dataFetched: true})
-        }
-      } catch (error) {
-        set({ loading: false, error: 'Unknown error' });
-      }
     },
-  
-  }))
+
+}))

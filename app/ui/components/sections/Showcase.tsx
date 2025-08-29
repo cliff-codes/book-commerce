@@ -39,7 +39,7 @@ const Showcase = () => {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                                className="bg-white/10 border-white/20 h-[50px] text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
                             >
                                 Browse Categories
                             </Button>
